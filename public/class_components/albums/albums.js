@@ -1,15 +1,18 @@
-export default class Song {
+const axios = require('axios');
+
+export default class Albums {
 
     constructor(container) {
         this.container = container;
     }
 
     render() {
-        let contents = '<div class="song-container">';
+        let contents = '<div class="albums-container">';
 
-        axios.get('/song')
+        axios.get('/albums')
             .then(res => {
-                // res.data.forEach(song => {
+                console.log(res);
+                // res.data.forEach(album => {
 
                 // });
                 contents.concat('</div>');
