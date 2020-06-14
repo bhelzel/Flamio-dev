@@ -18,11 +18,16 @@ app.get('/', (req, res) => {
 // });
 
 // access cmd 
-// curl -X s https://accounts.spotify.com/api/tokenMDI3NmE2NDVmMzkzNDQ1YzQzODExNWI5NTg6Yjk5ODhkYjc2ZDA3NDQ0MmFhODFhMzczMTJkMTJkMjk=" -d grant_type=client_credentials
+// curl -H "Authorization: Basic Y2QzM2EwMDI3NmE2NDVmMzkzNDQ1YzQzODExNWI5NTg6Yjk5ODhkYjc2ZDA3NDQ0MmFhODFhMzczMTJkMTJkMjk=" -d grant_type=client_credentials https://accounts.spotify.com/api/token
 
 app.get('/albums', (req, res) => {
   console.log('test');
-  fetch("https://api.spotify.com/v1/artists/1vCWHaC5f2uS3yhpwWbIA6/albums?album_type=SINGLE&offset=20&limit=10/")
+  access_token = 'BQAVV31vI5AtVc_VuiAS_sfAWSIPc251R_4FmxnY7G428rtgM2Po8xyG0fcU5zEOvpd6n48hBS4NRMPdt5Y';
+  fetch("https://api.spotify.com/v1/tracks/6ku4gCfjdxmYpajNONAciN", { // Family Feud
+    'headers': {
+      'Authorization': 'Bearer ' + access_token
+    }
+  })
     .then(res => {
       return res.json();
     }).then(data => {
